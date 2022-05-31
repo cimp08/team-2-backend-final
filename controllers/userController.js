@@ -34,10 +34,9 @@ const getUser = async (req, res) => {
 
 const getGenderedUsers = async (req, res) => {
   const gender = req.query.gender;
-  const userId = req.query.userId;
 
   if (gender === "everyone") {
-    const query = { _id: !userId };
+    const query = { gender: { $in: ["he", "she"] } };
     const allUsers = await User.find(query);
     res.send(allUsers);
   } else {
