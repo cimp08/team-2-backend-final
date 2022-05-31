@@ -19,14 +19,13 @@ const userRouter = require("./routes/userRoutes");
 app.use(express.json()); //To be able to access req.body
 app.use(cookieParser());
 
-
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
 
 const auth = require("./middleware/auth");
 
-app.post("/welcome", auth, (req, res) => {
-  res.status(200).send("Welcome 🙌 ");
+app.get("/", (req, res) => {
+  res.send("DoggyMatch");
 });
 
 const port = process.env.PORT || 5000;
