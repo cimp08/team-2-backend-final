@@ -35,13 +35,19 @@ const getUser = async (req, res) => {
 const getGenderedUsers = async (req, res) => {
   const gender = req.query.gender;
 
-  try {
-    const query = { gender: { $eq: gender } };
-    const foundUsers = await User.find(query);
+  if (gender === "everyone") {
+    const query = { gender: { $in: ["he", "she"] } };
+    const allUsers = await User.find(query);
+    res.send(allUsers);
+  } else {
+    try {
+      const query = { gender: { $eq: gender } };
+      const foundUsers = await User.find(query);
 
-    res.send(foundUsers);
-  } catch (err) {
-    console.log(err);
+      res.send(foundUsers);
+    } catch (err) {
+      console.log(err);
+    }
   }
 };
 
