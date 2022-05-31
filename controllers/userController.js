@@ -45,4 +45,16 @@ const getGenderedUsers = async (req, res) => {
   }
 };
 
-module.exports = { updateProfile, getUser, getGenderedUsers };
+const addMatch = async (req, res) => {
+  const { userId, matchedUserId } = req.body;
+
+  const query = { _id: userId };
+  const updateDocument = {
+    $push: { matches: { userId: matchedUserId } },
+  };
+
+  const user = await User.updateOne(query, updateDocument);
+  res.status(201).send(user);
+};
+
+module.exports = { updateProfile, getUser, getGenderedUsers, addMatch };
