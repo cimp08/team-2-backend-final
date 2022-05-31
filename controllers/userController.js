@@ -34,14 +34,21 @@ const getUser = async (req, res) => {
 
 const getGenderedUsers = async (req, res) => {
   const gender = req.query.gender;
+  const userId = req.query.userId;
 
-  try {
-    const query = { gender: { $eq: gender } };
-    const foundUsers = await User.find(query);
+  if (gender === "everyone") {
+    const query = { _id: !userId };
+    const allUsers = await User.find(query);
+    res.send(allUsers);
+  } else {
+    try {
+      const query = { gender: { $eq: gender } };
+      const foundUsers = await User.find(query);
 
-    res.send(foundUsers);
-  } catch (err) {
-    console.log(err);
+      res.send(foundUsers);
+    } catch (err) {
+      console.log(err);
+    }
   }
 };
 
