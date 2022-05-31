@@ -3,7 +3,7 @@ const User = require("../models/User");
 const updateProfile = async (req, res) => {
   const formData = req.body.formData;
 
-  const query = { userId: formData.userId };
+  const query = { _id: formData.userId };
 
   const updateDocument = {
     $set: {
@@ -18,8 +18,31 @@ const updateProfile = async (req, res) => {
     },
   };
   const insertedUser = await User.updateOne(query, updateDocument);
-
   res.json(insertedUser);
 };
 
-module.exports = { updateProfile };
+const getUser = async (req, res) => {
+  const userId = req.query.userId;
+  try {
+    const query = { _id: userId };
+    const user = await User.findOne(query);
+    res.send(user);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const getGenderedUsers = async (req, res) => {
+  const gender = req.query.gender;
+
+  try {
+    const query = { gender: { $eq: gender } };
+    const foundUsers = await User.find(query);
+
+    res.send(foundUsers);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+module.exports = { updateProfile, getUser, getGenderedUsers };
