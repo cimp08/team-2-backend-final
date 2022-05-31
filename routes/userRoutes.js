@@ -6,10 +6,12 @@ const {
   updateProfile,
   getUser,
   getGenderedUsers,
+  addMatch,
 } = require("../controllers/userController");
 
 router.route("/").put(updateProfile);
 router.route("/user").get(getUser);
 router.route("/gender-users").get(getGenderedUsers);
+router.route("/addMatch").put(addMatch);
 
 module.exports = router;
