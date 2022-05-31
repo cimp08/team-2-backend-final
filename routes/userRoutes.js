@@ -12,6 +12,6 @@ const {
 router.route("/").put(updateProfile);
 router.route("/user").get(getUser);
 router.route("/gender-users").get(getGenderedUsers);
-router.route("/addMatch").put(addMatch);
+router.route("/add-match").put(addMatch);
 
 module.exports = router;
