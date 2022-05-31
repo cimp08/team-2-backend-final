@@ -13,6 +13,13 @@ const register = async (req, res) => {
       res.status(400).send("All input is required");
     }
 
+    // check if username already exist
+    const oldUserName = await User.findOne({ userName });
+
+    if (oldUserName) {
+      return res.status(409).send("Username Already Exist. Please Provide Another One");
+    }
+
     // check if user already exist
     // Validate if user exist in our database
     const oldUser = await User.findOne({ email });
