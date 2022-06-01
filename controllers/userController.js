@@ -65,19 +65,13 @@ const addMatch = async (req, res) => {
 
 const getUsers = async (req, res) => {
   const userIds = JSON.parse(req.query.userIds);
-  console.log(userIds);
 
   try {
-    const pipeline = [
-      {
-        $match: {
-          user_id: {
-            $in: userIds,
-          },
-        },
+    const foundUsers = await User.find({
+      _id: {
+        $in: userIds,
       },
-    ];
-    const foundUsers = await User.aggregate(pipeline);
+    });
     res.send(foundUsers);
   } catch (error) {
     console.log(error);
