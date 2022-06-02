@@ -1,9 +1,8 @@
 const jwt = require("jsonwebtoken");
-
-const config = process.env;
+require("dotenv").config(); // To load environment variables from .env
 
 const verifyToken = (req, res, next) => {
-  const token = req.cookies.token;
+  const token = req.cookies;
 
   console.log(token);
 
