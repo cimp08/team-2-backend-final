@@ -5,12 +5,12 @@ const app = express();
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://funny-croquembouche-d10144.netlify.app/"
+    "https://funny-croquembouche-d10144.netlify.app/login"
   );
   res.header("Access-Control-Allow-Headers", "Content-Type");
   res.header(
     "Access-Control-Expose-Headers",
-    "https://funny-croquembouche-d10144.netlify.app/"
+    "https://funny-croquembouche-d10144.netlify.app/login"
   );
   next();
 });
