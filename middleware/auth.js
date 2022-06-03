@@ -2,9 +2,9 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config(); // To load environment variables from .env
 
 const verifyToken = (req, res, next) => {
-  const token = req.cookies;
+  const token = req.cookies.token;
 
-  console.log(token);
+  console.log("token", token);
 
   if (!token) {
     return res.status(403).send("A token is required for authentication");
