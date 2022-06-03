@@ -2,6 +2,19 @@
 const express = require("express");
 const app = express();
 
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://funny-croquembouche-d10144.netlify.app"
+  );
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header(
+    "Access-Control-Expose-Headers",
+    "https://funny-croquembouche-d10144.netlify.app"
+  );
+  next();
+});
+
 require("dotenv").config(); // To load environment variables from .env
 
 //Cors
@@ -10,20 +23,11 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://magenta-naiad-e18a89.netlify.app/",
+      "https://funny-croquembouche-d10144.netlify.app",
     ],
     credentials: true,
   })
 );
-
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
 
 const cookieParser = require("cookie-parser");
 
