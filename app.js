@@ -8,7 +8,10 @@ require("dotenv").config(); // To load environment variables from .env
 const cors = require("cors");
 app.use(
   cors({
-    origin: true,
+    origin: [
+      "http://localhost:3000",
+      "https://magenta-naiad-e18a89.netlify.app/",
+    ],
     credentials: true,
   })
 );
