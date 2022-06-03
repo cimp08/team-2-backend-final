@@ -10,7 +10,10 @@ const {
   getUsers,
 } = require("../controllers/userController");
 
-const { getMessages } = require("../controllers/messageController");
+const {
+  getMessages,
+  postMessage,
+} = require("../controllers/messageController");
 
 router.route("/").put(updateProfile);
 router.route("/user").get(getUser);
@@ -19,5 +22,6 @@ router.route("/add-match").put(addMatch);
 router.route("/users").get(getUsers);
 router.get("/protected", verifyToken);
 router.route("/messages").get(getMessages);
+router.route("/message").post(postMessage);
 
 module.exports = router;

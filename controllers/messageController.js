@@ -17,6 +17,18 @@ const getMessages = async (req, res) => {
   }
 };
 
+const postMessage = async (req, res) => {
+  const message = req.body.message;
+
+  try {
+    const insertedMessage = await Messages.create(message);
+    res.send(insertedMessage);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   getMessages,
+  postMessage,
 };
