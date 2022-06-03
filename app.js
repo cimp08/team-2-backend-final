@@ -8,15 +8,12 @@ require("dotenv").config(); // To load environment variables from .env
 const cors = require("cors");
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://funny-croquembouche-d10144.netlify.app",
-    ],
+    origin: process.env.REQUEST_URL,
     credentials: true,
   })
 );
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
     "https://funny-croquembouche-d10144.netlify.app"
@@ -27,7 +24,7 @@ app.use((req, res, next) => {
     "https://funny-croquembouche-d10144.netlify.app"
   );
   next();
-});
+}); */
 
 const cookieParser = require("cookie-parser");
 
