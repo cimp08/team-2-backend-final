@@ -16,7 +16,7 @@ const {
 } = require("../controllers/messageController");
 
 router.route("/").put(updateProfile);
-router.route("/user").get(getUser);
+router.route("/user").get(verifyToken, getUser);
 router.route("/gender-users").get(getGenderedUsers);
 router.route("/add-match").put(addMatch);
 router.route("/users").get(getUsers);

@@ -22,7 +22,7 @@ const updateProfile = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
-  const userId = req.query.userId;
+  const userId = req.user.id;
   try {
     const query = { _id: userId };
     const user = await User.findOne(query);

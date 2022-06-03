@@ -2,11 +2,17 @@
 const express = require("express");
 const app = express();
 
+require("dotenv").config(); // To load environment variables from .env
+
 //Cors
 const cors = require("cors");
-app.use(cors({ credentials: true, origin: true }));
+app.use(
+  cors({
+    origin: process.env.REQUEST_URL,
+    credentials: true,
+  })
+);
 
-require("dotenv").config(); // To load environment variables from .env
 const cookieParser = require("cookie-parser");
 
 //Database
