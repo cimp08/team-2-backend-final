@@ -7,9 +7,12 @@ app.use((req, res, next) => {
     "Access-Control-Allow-Origin",
     "https://funny-croquembouche-d10144.netlify.app"
   );
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
   res.header("Access-Control-Allow-Headers", "Content-Type");
-
+  res.header(
+    "Access-Control-Expose-Headers",
+    "https://funny-croquembouche-d10144.netlify.app"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
 
