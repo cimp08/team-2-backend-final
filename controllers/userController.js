@@ -63,4 +63,25 @@ const addMatch = async (req, res) => {
   res.status(201).send(user);
 };
 
-module.exports = { updateProfile, getUser, getGenderedUsers, addMatch };
+const getUsers = async (req, res) => {
+  const userIds = JSON.parse(req.query.userIds);
+
+  try {
+    const foundUsers = await User.find({
+      _id: {
+        $in: userIds,
+      },
+    });
+    res.send(foundUsers);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = {
+  updateProfile,
+  getUser,
+  getGenderedUsers,
+  addMatch,
+  getUsers,
+};
