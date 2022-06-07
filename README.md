@@ -13,7 +13,7 @@
 <!-- * [License](#license) -->
 
 ## General Information
-- The purpose of this repository is to provide an Api to interact with the frontend part of DoggyMatch-App. [@Frontend]https://github.com/cimp08/team-2-frontend/
+- The purpose of this repository is to provide an Api to interact with the frontend part of DoggyMatch-App. https://github.com/cimp08/team-2-frontend/
 
 ## Technologies Used
 - Node.js - version 16.15.1
