@@ -40,7 +40,7 @@ const register = async (req, res) => {
       password: encryptedPassword,
     });
 
-    // Create token
+    /* // Create token
     const token = jwt.sign(
       { user_id: user._id, email },
       process.env.TOKEN_KEY,
@@ -49,10 +49,10 @@ const register = async (req, res) => {
       }
     );
     // save user token
-    user.token = token;
+    user.token = token; */
 
     // return new user
-    res.status(201).json(user);
+    res.status(201).json({ msg: "Account is created. Please Login!" });
   } catch (err) {
     console.log(err);
   }
@@ -76,7 +76,7 @@ const login = async (req, res) => {
         { id: user._id, username: user.username, role: user.role },
         process.env.TOKEN_KEY,
         {
-          expiresIn: "2h",
+          expiresIn: "24h",
         }
       );
 
