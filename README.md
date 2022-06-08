@@ -27,9 +27,20 @@
 - Chat with the users matched
 
 ## Setup
-- The first step use the api is to intall node.js in your computer. https://nodejs.org/en/
-- Execute npm install in the console in the root of the project to install all the dependencies.
-- Execute npm start to start the server. 
+1. Intall node.js in your computer. https://nodejs.org/en/
+2 Install all the dependencies.
+
+```
+npm install
+```
+
+3 Start the server. 
+
+```
+npm start
+```
+
+4. The server runs locally at: http://localhost:5000/
 
 ## Project Status
 Project is: _in progress_.
@@ -47,7 +58,6 @@ Room for improvement:
 Created by:
 [@RicardoCastelbon](https://github.com/RicardoCastelbon) 
 [@CemilUlay](https://github.com/cimp08)
-[@HeidiDragomir](https://github.com/HeidiDragomir)
 Write the rest of the team...
 
 Feel free to contact us!
