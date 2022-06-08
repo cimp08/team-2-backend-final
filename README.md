@@ -47,6 +47,7 @@ Room for improvement:
 Created by:
 [@RicardoCastelbon](https://github.com/RicardoCastelbon) 
 [@CemilUlay](https://github.com/cimp08)
+[@HeidiDragomir](https://github.com/HeidiDragomir)
 Write the rest of the team...
 
 Feel free to contact us!
