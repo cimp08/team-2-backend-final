@@ -1,3 +1,5 @@
+const cookieParser = require("cookie-parser");
+
 //Express
 const express = require("express");
 const app = express();
@@ -8,12 +10,10 @@ require("dotenv").config(); // To load environment variables from .env
 const cors = require("cors");
 app.use(
   cors({
-    origin: process.env.REQUEST_URL,
     credentials: true,
+    origin: process.env.REQUEST_URL,
   })
 );
-
-const cookieParser = require("cookie-parser");
 
 //Database
 const connectDB = require("./db/connect");
