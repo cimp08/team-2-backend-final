@@ -36,9 +36,9 @@ npm install
 ```
 
 3. Create the .env file with the following environment variables:
-MONGO_URI = The mongoDB database
-TOKEN_KEY = The key to encode the token
-REQUEST_URL = The frontend URL
+- MONGO_URI = The mongoDB database
+- TOKEN_KEY = The key to encode the token
+- REQUEST_URL = The frontend URL
 
 4. Start the server. 
 
