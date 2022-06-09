@@ -28,19 +28,25 @@
 
 ## Setup
 1. Intall node.js in your computer. https://nodejs.org/en/
-2 Install all the dependencies.
+
+2. Install all the dependencies.
 
 ```
 npm install
 ```
 
-3 Start the server. 
+3. Create the .env file with the following environment variables:
+MONGO_URI = The mongoDB database
+TOKEN_KEY = The key to encode the token
+REQUEST_URL = The frontend URL
+
+4. Start the server. 
 
 ```
 npm start
 ```
 
-4. The server runs locally at: http://localhost:5000/
+5. The server runs locally at: http://localhost:5000/
 
 ## Project Status
 Project is: _in progress_.
@@ -48,8 +54,9 @@ Project is: _in progress_.
 ## Room for Improvement
 
 Room for improvement:
-- More advanced auth system with features like: "confirmation email" before creating account or "forgot password" and "reset password" via sending an email.
-- Add geolocalization system where the user can choose filter the other user's dogs by distance(km) or by the city.
+- More advanced auth system with features like: "confirmation email" after signup or "forgot password" and "reset password" via sending an email.
+- Add geolocalization system where the user can choose to filter the other user's dogs by distance(km) or by the city.
+- Upload your dog picture.
 
 ## Acknowledgements
 - This project was inspired by Tinder
@@ -59,6 +66,10 @@ Created by:
 [@RicardoCastelbon](https://github.com/RicardoCastelbon) 
 [@CemilUlay](https://github.com/cimp08)
 [@SaraAbouDabous](https://github.com/sarz2)
+
+## License
+
+Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License.
 
 Feel free to contact us!
 
