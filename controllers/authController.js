@@ -40,17 +40,6 @@ const register = async (req, res) => {
       password: encryptedPassword,
     });
 
-    /* // Create token
-    const token = jwt.sign(
-      { user_id: user._id, email },
-      process.env.TOKEN_KEY,
-      {
-        expiresIn: "1d",
-      }
-    );
-    // save user token
-    user.token = token; */
-
     // return new user
     res.status(201).json({ msg: "Account is created. Please Login!" });
   } catch (err) {
@@ -80,8 +69,6 @@ const login = async (req, res) => {
         }
       );
 
-      console.log("token", token);
-
       // user
       res
         .cookie("token", token, {
@@ -101,7 +88,11 @@ const login = async (req, res) => {
 
 const logout = async (req, res) => {
   return res
-    .clearCookie("token")
+    .clearCookie("token", {
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+    })
     .status(200)
     .json({ message: "Successfully logged out 😏 🍀" });
 };
