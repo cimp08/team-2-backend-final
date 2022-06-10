@@ -90,7 +90,7 @@ const logout = async (req, res) => {
   return res
     .clearCookie("token", {
       httpOnly: true,
-      sameSite: "none",
+      sameSite: "Lax",
       secure: true,
     })
     .status(200)
