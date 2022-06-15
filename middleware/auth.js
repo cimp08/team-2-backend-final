@@ -2,7 +2,8 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config(); // To load environment variables from .env
 
 const verifyToken = (req, res, next) => {
-  const token = req.cookies.token;
+  // const token = req.cookies.token; // Cross-domain
+  const token = req.headers.authorization.split(" ")[1]; //Cross-domain
 
   console.log("token", token);
 

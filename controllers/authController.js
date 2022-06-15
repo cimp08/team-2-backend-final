@@ -72,12 +72,12 @@ const login = async (req, res) => {
       // user
       res
         .cookie("token", token, {
-          httpOnly: true,
+          /* httpOnly: true, */
           sameSite: "none",
           secure: true,
         })
         .status(200)
-        .json({ msg: "Logged in successfully", user });
+        .json({ msg: "Logged in successfully", user, token });
     } else {
       res.status(400).send("Invalid Credentials");
     }
@@ -89,7 +89,7 @@ const login = async (req, res) => {
 const logout = async (req, res) => {
   return res
     .clearCookie("token", {
-      httpOnly: true,
+      /* httpOnly: true, */
       sameSite: "Lax",
       secure: true,
     })
